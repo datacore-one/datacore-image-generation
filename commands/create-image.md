@@ -55,7 +55,7 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
 
 2. **Optional Parameters**:
    - Ask if user wants custom settings:
-     - Model (default: `gemini-2.5-flash-image-preview`)
+     - Model (default: `gemini-2.5-flash-image`)
      - Size/aspect ratio (default: `1920x1080`)
      - Style instructions (optional)
 
@@ -154,7 +154,7 @@ image-generation:
   # Gemini settings
   gemini:
     api_key: ""  # Set via GEMINI_API_KEY env var
-    model: "gemini-2.5-flash-image-preview"
+    model: "gemini-2.5-flash-image"
     download_path: "2-datacore/2-projects/images/gemini"
     default_size: "1920x1080"
 

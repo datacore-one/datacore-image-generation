@@ -83,7 +83,7 @@ python scripts/midjourney-discord.py download --prompt-id <id> --output <path>
 python scripts/gemini-image-gen.py \
   --prompt "<prompt>" \
   --output <path> \
-  --model gemini-2.5-flash-image-preview \
+  --model gemini-2.5-flash-image \
   --size 1920x1080
 ```
 

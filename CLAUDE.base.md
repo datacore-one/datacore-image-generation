@@ -73,7 +73,7 @@ Reusable Gemini AI image generation (extracted from slides module):
 python scripts/gemini-image-gen.py --prompt "futuristic cityscape" --output ./output.png
 
 # With custom parameters
-python scripts/gemini-image-gen.py --prompt "abstract art" --model gemini-2.5-flash-image-preview --size 1920x1080
+python scripts/gemini-image-gen.py --prompt "abstract art" --model gemini-2.5-flash-image --size 1920x1080
 ```
 
 ### image-library.py
@@ -147,7 +147,7 @@ image-generation:
     auto_fetch_on_start: true  # Fetch latest images when command runs
 
   gemini:
-    model: "gemini-2.5-flash-image-preview"
+    model: "gemini-2.5-flash-image"
 
   archive:
     organize_by_date: true

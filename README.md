@@ -62,7 +62,7 @@ image-generation:
 
   # Gemini
   gemini:
-    model: "gemini-2.5-flash-image-preview"
+    model: "gemini-2.5-flash-image"
     download_path: "2-datacore/2-projects/images/gemini"
 
   # Archive
