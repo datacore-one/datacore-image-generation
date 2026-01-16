@@ -4,11 +4,11 @@ Unified image generation system for Datacore supporting multiple AI services wit
 
 ## Features
 
-- **Midjourney Integration** - Via Discord API
-  - Fetch historical prompts and images
+- **Midjourney Integration** - Via Apiframe API
   - Send new `/imagine` commands
   - Monitor generation and download results
   - Build searchable prompt library
+  - No Discord account required
 
 - **Gemini AI Integration** - Google's image models
   - Fast, immediate generation
@@ -41,9 +41,8 @@ Set environment variables in `.datacore/env/.env`:
 # Required for Gemini
 GEMINI_API_KEY=AIza...
 
-# Optional for Midjourney
-MIDJOURNEY_DISCORD_TOKEN=your_discord_token
-MIDJOURNEY_CHANNEL_ID=your_channel_id
+# Required for Midjourney
+APIFRAME_API_KEY=your_apiframe_key
 ```
 
 ### Settings
@@ -62,7 +61,7 @@ image-generation:
 
   # Gemini
   gemini:
-    model: "gemini-2.5-flash-image"
+    model: "gemini-3-pro-image-preview"
     download_path: "2-datacore/2-projects/images/gemini"
 
   # Archive
@@ -108,14 +107,14 @@ python scripts/gemini-image-gen.py \
 
 **Midjourney:**
 ```bash
-# Fetch historical images
-python scripts/midjourney-discord.py fetch --all --download
+# Generate image (waits for completion)
+python scripts/midjourney-api.py imagine "serene landscape" --ar 16:9
 
-# Send new prompt
-python scripts/midjourney-discord.py imagine "serene landscape" --ar 16:9
+# Submit without waiting
+python scripts/midjourney-api.py imagine "serene landscape" --no-wait
 
-# Check status
-python scripts/midjourney-discord.py status --prompt-id <message_id>
+# Check status and download
+python scripts/midjourney-api.py status <task_id> --download
 ```
 
 **Library Management:**
@@ -190,7 +189,7 @@ The slides module depends on this module for Gemini image generation. Background
 
 ## Security Note
 
-**Discord Token:** Your Discord token provides full account access. Never share it or commit it to git. Store only in `.datacore/env/.env` which is gitignored.
+**API Keys:** Never share API keys or commit them to git. Store only in `.datacore/env/.env` which is gitignored.
 
 ## License
 

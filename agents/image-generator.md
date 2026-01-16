@@ -55,8 +55,7 @@ Check user's request and settings:
 ### Step 2: Validate Configuration
 
 **For Midjourney:**
-- Check `MIDJOURNEY_DISCORD_TOKEN` exists
-- Check `MIDJOURNEY_CHANNEL_ID` exists
+- Check `APIFRAME_API_KEY` exists
 - If missing, provide setup instructions (see Boundaries)
 
 **For Gemini:**
@@ -67,14 +66,14 @@ Check user's request and settings:
 
 **Midjourney Workflow:**
 ```bash
-# Send prompt to Discord
-python scripts/midjourney-discord.py imagine "<prompt>" [--ar 16:9] [--style raw] [--v 6]
+# Generate image (waits for completion, downloads automatically)
+python scripts/midjourney-api.py imagine "<prompt>" [--ar 16:9] [--mode fast]
 
-# Monitor for completion (poll every 15s)
-python scripts/midjourney-discord.py status --prompt-id <id>
+# Or submit without waiting
+python scripts/midjourney-api.py imagine "<prompt>" --no-wait
 
-# Download when ready
-python scripts/midjourney-discord.py download --prompt-id <id> --output <path>
+# Check status and download
+python scripts/midjourney-api.py status <task_id> --download
 ```
 
 **Gemini Workflow:**
@@ -83,7 +82,7 @@ python scripts/midjourney-discord.py download --prompt-id <id> --output <path>
 python scripts/gemini-image-gen.py \
   --prompt "<prompt>" \
   --output <path> \
-  --model gemini-2.5-flash-image \
+  --model gemini-3-pro-image-preview \
   --size 1920x1080
 ```
 
@@ -195,31 +194,12 @@ Offer actions:
 - "Generate variation with modifications?"
 - "View full-size images?"
 
-## Midjourney History Fetch
+## Midjourney History
 
-If user requests "sync Midjourney history" or "fetch past images":
+Note: The Apiframe integration doesn't support fetching historical images from Discord.
+For historical images, use the deprecated `midjourney-discord.py` script (requires Discord credentials).
 
-```bash
-# Fetch all historical images from Discord
-python scripts/midjourney-discord.py fetch --all --since "2025-01-01"
-
-# This will:
-# 1. Scan Discord DM channel
-# 2. Download all Midjourney images
-# 3. Extract prompts from messages
-# 4. Save with metadata
-# 5. Update searchable index
-```
-
-Show progress and summary:
-```
-Fetching Midjourney history...
-Found 147 images from 2025-01-01 to 2026-01-15
-Downloaded: 147/147
-Indexed: 147/147
-
-Images saved to: ~/Data/2-datacore/2-projects/images/midjourney/
-```
+All new generations via Apiframe are automatically archived with metadata.
 
 ## Files to Reference
 
@@ -236,11 +216,10 @@ Images saved to: ~/Data/2-datacore/2-projects/images/midjourney/
 ## Your Boundaries
 
 **YOU CAN:**
-- Generate images via Midjourney Discord API
+- Generate images via Midjourney (Apiframe API)
 - Generate images via Gemini AI API
 - Archive images with metadata (prompt, params, timestamp)
 - Build and update searchable prompt library
-- Fetch historical Midjourney images from Discord
 - Suggest variations and refinements
 - Tag images for organization
 - Mark org-mode tasks complete with results
@@ -248,15 +227,13 @@ Images saved to: ~/Data/2-datacore/2-projects/images/midjourney/
 **YOU CANNOT:**
 - Generate NSFW or harmful content (both services have filters)
 - Edit or modify existing images (use external image editors)
-- Access Discord beyond Midjourney bot interactions
 - Override service content policies
-- Share user's Discord tokens or API keys
+- Share user's API keys
 
 **YOU MUST:**
 - Save metadata JSON for every generated image
 - Respect user's service preference settings
 - Handle missing credentials gracefully with setup instructions
-- Warn about Discord token security
 - Update searchable index when configured
 - Provide clear file paths in task completion notes
 
@@ -265,13 +242,13 @@ Images saved to: ~/Data/2-datacore/2-projects/images/midjourney/
 **Missing credentials:**
 Provide clear setup instructions with exact steps (see `/create-image` command docs).
 
-**Midjourney timeout (>2 min):**
+**Midjourney timeout (>5 min):**
 ```
 Warning: Midjourney generation taking longer than expected.
 
 Options:
-1. Keep waiting (checking every 15s)
-2. Cancel and check Discord manually
+1. Keep waiting (checking every 10s)
+2. Cancel and check later with task ID
 3. I'll notify you when it completes
 ```
 

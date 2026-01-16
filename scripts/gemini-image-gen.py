@@ -132,8 +132,8 @@ Examples:
     parser.add_argument('--output', '-o', required=True,
                         help='Output file path (PNG)')
     parser.add_argument('--model', '-m',
-                        default='gemini-2.5-flash-image',
-                        help='Gemini model (default: gemini-2.5-flash-image)')
+                        default='gemini-3-pro-image-preview',
+                        help='Gemini model (default: gemini-3-pro-image-preview)')
     parser.add_argument('--save-metadata', action='store_true',
                         help='Save metadata JSON sidecar')
     parser.add_argument('--count', '-n', type=int, default=1,

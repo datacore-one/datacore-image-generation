@@ -20,8 +20,8 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
 
 #### Option 1: Midjourney
 
-1. **Check Discord Setup**:
-   - Verify `MIDJOURNEY_DISCORD_TOKEN` and `MIDJOURNEY_CHANNEL_ID` are set
+1. **Check API Setup**:
+   - Verify `APIFRAME_API_KEY` is set
    - If missing, provide setup instructions (see Error Handling below)
 
 2. **Get Prompt**:
@@ -29,16 +29,16 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
    - User provides prompt (can be detailed or simple)
 
 3. **Optional Parameters**:
-   - Ask if user wants to specify Midjourney parameters (--ar, --style, --v, etc.)
+   - Ask if user wants to specify Midjourney parameters (--ar, --style, --v, --mode, etc.)
    - Default: Use Midjourney defaults
 
-4. **Send to Discord**:
-   - Call `scripts/midjourney-discord.py imagine <prompt> [params]`
-   - Show confirmation: "Sent to Midjourney. This may take 1-2 minutes..."
+4. **Submit to Apiframe**:
+   - Call `scripts/midjourney-api.py imagine "<prompt>" [--ar 16:9] [--mode fast]`
+   - Show confirmation: "Submitted to Midjourney. This may take 1-2 minutes..."
 
 5. **Monitor and Download**:
-   - Poll Discord channel for completion
-   - When ready, download all variations
+   - Poll Apiframe API for completion
+   - When ready, download all 4 variations
    - Save to archive with metadata
    - Show user: "Generated 4 variations. Saved to: [path]"
 
@@ -55,7 +55,7 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
 
 2. **Optional Parameters**:
    - Ask if user wants custom settings:
-     - Model (default: `gemini-2.5-flash-image`)
+     - Model (default: `gemini-3-pro-image-preview`)
      - Size/aspect ratio (default: `1920x1080`)
      - Style instructions (optional)
 
@@ -144,17 +144,16 @@ image-generation:
   # Service selection
   default_service: "gemini"  # null (ask), "midjourney", or "gemini"
 
-  # Midjourney settings
+  # Midjourney settings (via Apiframe)
   midjourney:
-    discord_token: ""  # Set via MIDJOURNEY_DISCORD_TOKEN env var
-    channel_id: ""     # Set via MIDJOURNEY_CHANNEL_ID env var
+    api_key: ""  # Set via APIFRAME_API_KEY env var
     download_path: "2-datacore/2-projects/images/midjourney"
-    auto_fetch_on_start: false
+    default_mode: "fast"  # fast or turbo
 
   # Gemini settings
   gemini:
     api_key: ""  # Set via GEMINI_API_KEY env var
-    model: "gemini-2.5-flash-image"
+    model: "gemini-3-pro-image-preview"
     download_path: "2-datacore/2-projects/images/gemini"
     default_size: "1920x1080"
 
@@ -170,27 +169,15 @@ image-generation:
 
 ## Error Handling
 
-**Missing Discord credentials (Midjourney):**
+**Missing Apiframe API key (Midjourney):**
 ```
-Error: Midjourney Discord credentials not configured.
+Error: APIFRAME_API_KEY not found.
 
 Solution:
-  1. Get your Discord user token:
-     - Open Discord in browser
-     - Open DevTools (F12) > Network tab
-     - Look for any XHR request
-     - Find "authorization" header
-     - Copy the token (starts with "MTk...")
-
-  2. Get your Midjourney DM channel ID:
-     - Right-click Midjourney bot in DMs
-     - Copy ID (enable Developer Mode in Settings)
-
+  1. Sign up at https://apiframe.ai
+  2. Get your API key from the dashboard
   3. Add to .datacore/env/.env:
-     MIDJOURNEY_DISCORD_TOKEN=your_token_here
-     MIDJOURNEY_CHANNEL_ID=your_channel_id_here
-
-Warning: Never share your Discord token with anyone.
+     APIFRAME_API_KEY=your_key_here
 ```
 
 **Missing Gemini API key:**
@@ -205,12 +192,12 @@ Solution:
 
 **Midjourney timeout:**
 ```
-Warning: Midjourney generation taking longer than expected (>2 min).
+Warning: Midjourney generation taking longer than expected (>5 min).
 
 The image is still being generated. Options:
-  1. Keep waiting (status checks every 15s)
-  2. Cancel and check Discord manually
-  3. Check later with: /create-image --fetch-latest
+  1. Keep waiting (status checks every 10s)
+  2. Cancel and check later with task ID
+  3. Check status: python scripts/midjourney-api.py status <task_id>
 ```
 
 **Archive directory doesn't exist:**
@@ -226,7 +213,7 @@ Solution:
 ## Your Boundaries
 
 **YOU CAN:**
-- Generate images via Midjourney (Discord API)
+- Generate images via Midjourney (Apiframe API)
 - Generate images via Gemini AI
 - Save images with metadata to archive
 - Organize and index image library
@@ -265,16 +252,16 @@ PROMPT: "futuristic cityscape", "tech startup office", "data visualization"
 
 ## Scripts Reference
 
-**Midjourney Discord:**
+**Midjourney (via Apiframe):**
 ```bash
-# Fetch all historical images
-python scripts/midjourney-discord.py fetch --all
+# Generate image (waits for completion)
+python scripts/midjourney-api.py imagine "prompt" --ar 16:9
 
-# Send new prompt
-python scripts/midjourney-discord.py imagine "prompt" --ar 16:9 --v 6
+# Submit without waiting
+python scripts/midjourney-api.py imagine "prompt" --no-wait
 
 # Check status
-python scripts/midjourney-discord.py status --prompt-id <id>
+python scripts/midjourney-api.py status <task_id> --download
 ```
 
 **Gemini:**

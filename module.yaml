@@ -28,7 +28,7 @@ settings:
   # Gemini AI
   gemini:
     api_key: ""  # From env (GEMINI_API_KEY)
-    model: "gemini-2.5-flash-image"
+    model: "gemini-3-pro-image-preview"
     download_path: "2-datacore/2-projects/images/gemini"  # Relative to space root
     default_size: "1920x1080"  # Default aspect ratio
 

@@ -39,7 +39,7 @@ Routes image generation requests to appropriate service based on user choice. Ha
 
 ## Scripts
 
-### midjourney-discord.py
+### midjourney-api.py
 
 Discord API integration for Midjourney bot:
 - Fetch historical prompts and images from DM channel
@@ -50,13 +50,13 @@ Discord API integration for Midjourney bot:
 **Usage:**
 ```bash
 # Fetch all historical images
-python scripts/midjourney-discord.py fetch --all
+python scripts/midjourney-api.py fetch --all
 
 # Send new prompt
-python scripts/midjourney-discord.py imagine "a serene mountain landscape at sunset"
+python scripts/midjourney-api.py imagine "a serene mountain landscape at sunset"
 
 # Monitor and download when ready
-python scripts/midjourney-discord.py download --prompt-id <id>
+python scripts/midjourney-api.py download --prompt-id <id>
 ```
 
 ### gemini-image-gen.py
@@ -73,7 +73,7 @@ Reusable Gemini AI image generation (extracted from slides module):
 python scripts/gemini-image-gen.py --prompt "futuristic cityscape" --output ./output.png
 
 # With custom parameters
-python scripts/gemini-image-gen.py --prompt "abstract art" --model gemini-2.5-flash-image --size 1920x1080
+python scripts/gemini-image-gen.py --prompt "abstract art" --model gemini-3-pro-image-preview --size 1920x1080
 ```
 
 ### image-library.py
@@ -147,7 +147,7 @@ image-generation:
     auto_fetch_on_start: true  # Fetch latest images when command runs
 
   gemini:
-    model: "gemini-2.5-flash-image"
+    model: "gemini-3-pro-image-preview"
 
   archive:
     organize_by_date: true
