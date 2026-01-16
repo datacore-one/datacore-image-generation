@@ -1,0 +1,13 @@
+# Image Generation Module Requirements
+
+# Google Gemini AI
+google-generativeai>=0.3.0
+
+# Discord API (for Midjourney)
+requests>=2.31.0
+
+# Image processing
+Pillow>=10.0.0
+
+# Environment management
+python-dotenv>=1.0.0

@@ -1,0 +1,89 @@
+name: image-generation
+version: 0.2.0
+description: Unified image generation - Midjourney (via Apiframe API) and Gemini AI with prompt library and archive management
+author: datacore
+repository: https://github.com/datacore-one/module-image-generation
+license: MIT
+
+# Dependencies
+dependencies:
+  - core@>=1.0.0
+
+# Optional enhancements
+optional:
+  - slides  # Uses Gemini image generation functionality
+
+# Configurable settings
+settings:
+  # Midjourney (via Apiframe.ai REST API)
+  midjourney:
+    provider: "apiframe"  # API provider (apiframe is recommended)
+    api_key: ""           # From env: APIFRAME_API_KEY
+    download_path: "2-datacore/2-projects/images/midjourney"  # Relative to space root
+    default_mode: "fast"  # fast or turbo
+    # Legacy Discord settings (deprecated)
+    discord_token: ""     # DEPRECATED - use Apiframe instead
+    channel_id: ""        # DEPRECATED - use Apiframe instead
+
+  # Gemini AI
+  gemini:
+    api_key: ""  # From env (GEMINI_API_KEY)
+    model: "gemini-2.5-flash-image-preview"
+    download_path: "2-datacore/2-projects/images/gemini"  # Relative to space root
+    default_size: "1920x1080"  # Default aspect ratio
+
+  # Archive settings
+  archive:
+    organize_by_date: true     # Organize images by YYYY/MM/DD structure
+    organize_by_project: false # Organize by project/tag
+    save_metadata: true        # Save prompt and params as JSON sidecar
+    build_searchable_index: true  # Build searchable prompt library
+
+  # Auto behaviors
+  auto_open_image: true      # Open generated image after creation
+  default_service: null      # null = ask user, "midjourney" or "gemini"
+
+# What this module provides
+provides:
+  commands:
+    - create-image           # Unified conversational image generation command
+
+  agents:
+    - image-generator        # Routes to Midjourney or Gemini based on user choice
+
+  scripts:
+    - midjourney-api.py      # Apiframe REST API integration for Midjourney (recommended)
+    - midjourney-discord.py  # Discord API integration for Midjourney (deprecated)
+    - gemini-image-gen.py    # Gemini AI image generation (reusable)
+    - image-library.py       # Manage archive, search prompts, rebuild index
+
+# Use cases
+use_cases:
+  - Generate marketing images and graphics
+  - Create custom profile pictures and avatars
+  - Build presentation backgrounds and visual assets
+  - Archive and search personal image prompt library
+  - Sync Midjourney history from Discord
+  - Batch generate variations of prompts
+
+# Required environment variables
+requires:
+  env_vars:
+    required:
+      - GEMINI_API_KEY        # Google Gemini API key
+      - APIFRAME_API_KEY      # Apiframe.ai API key for Midjourney
+    optional:
+      - MIDJOURNEY_DISCORD_TOKEN  # DEPRECATED - Discord user token
+      - MIDJOURNEY_CHANNEL_ID     # DEPRECATED - Channel ID for Midjourney DM
+
+# Installation hooks
+hooks:
+  post_install: |
+    echo "Image Generation module installed."
+    echo ""
+    echo "Required environment variables in .datacore/env/.env:"
+    echo "  GEMINI_API_KEY      - Google Gemini API key"
+    echo "  APIFRAME_API_KEY    - Apiframe.ai API key for Midjourney"
+    echo ""
+    echo "Run /create-image to generate your first image."
+    echo "Images are saved to: 2-datacore/2-projects/images/{service}/"

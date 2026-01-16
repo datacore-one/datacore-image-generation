@@ -1,0 +1,45 @@
+# Layered context (DIP-0002)
+CLAUDE.md
+CLAUDE.space.md
+CLAUDE.local.md
+*.local.md
+*.space.md
+
+# Local config
+*.local.yaml
+settings.local.yaml
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test outputs
+test_output/
+temp/
