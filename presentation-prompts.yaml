@@ -1,0 +1,279 @@
+# unDavos Keynote Presentation - Image Generation Prompts
+# Based on: undavos-keynote-script-v5-FINAL.md
+
+title: "We're Ready. Are You?"
+date: "2026-01-16"
+duration: "25 minutes"
+
+# Branding Guidelines
+branding:
+  style: "Modern, minimalist, professional"
+  colors: "Deep blue, teal, white, subtle gradients"
+  vibe: "Tech conference, but accessible and human"
+  avoid: "Generic corporate stock photos, overly abstract"
+
+# Slide Images to Generate
+
+slides:
+
+  - id: "title"
+    act: "Opening"
+    title: "We're Ready. Are You?"
+    prompt: >
+      Keynote title slide background: Bold, confident, modern.
+      Abstract representation of data sovereignty and freedom.
+      Deep blue and teal gradient with subtle geometric patterns.
+      Professional but not corporate. Clean negative space for text overlay.
+      Aspect ratio 16:9, minimalist, high contrast.
+    style: "Cinematic, powerful, invitation to action"
+
+  - id: "act1-title"
+    act: "Act I"
+    title: "The AI Data War"
+    prompt: >
+      Dark, intense background representing the battle for data.
+      Abstract visualization of data flowing, being captured, controlled.
+      Ominous but not dystopian. Deep reds transitioning to dark blues.
+      Suggests surveillance, asymmetry, power imbalance.
+      Minimalist, professional, 16:9.
+    style: "Tension, urgency, conflict"
+
+  - id: "cambridge-analytica"
+    act: "Act I"
+    title: "Cambridge Analytica Story"
+    prompt: >
+      Abstract representation of psychologically targeted manipulation.
+      Data points converging on human silhouettes, neural network patterns.
+      Unsettling but professional. Muted colors - grays, dark blues.
+      Suggests invisible influence, lack of awareness.
+      16:9, modern minimalist.
+    style: "Subtle unease, privacy invasion"
+
+  - id: "shoe-size"
+    act: "Act I"
+    title: "The Shoe Size Story (Cinderella)"
+    prompt: >
+      Whimsical yet profound: Data as unique identifier.
+      Abstract representation of shoe/footprint transforming into data patterns.
+      Playful but serious - light blues and teals.
+      Suggests uniqueness, identity, tracking.
+      Clean, modern, 16:9.
+    style: "Story illustration, accessible"
+
+  - id: "act2-title"
+    act: "Act II"
+    title: "We're Building It"
+    prompt: >
+      Constructive, optimistic background - building infrastructure.
+      Abstract architecture, layered systems, foundation to application.
+      Bright teals, blues, whites. Upward momentum.
+      Suggests progress, solidity, engineering excellence.
+      Professional, clean, 16:9.
+    style: "Optimism, construction, momentum"
+
+  - id: "fair-data-stack"
+    act: "Act II"
+    title: "The Fair Data Stack"
+    prompt: >
+      Layered technology stack visualization.
+      Foundation layers building to application layer.
+      Each layer distinct but integrated. Teal and blue gradients.
+      Clean lines, minimal, suggests robust architecture.
+      16:9, professional diagram aesthetic.
+    style: "Technical precision, clarity"
+
+  - id: "timeline"
+    act: "Act II"
+    title: "2019→2020→2022 Timeline"
+    prompt: >
+      Timeline visualization with subtle humor.
+      Three milestones connected by flowing line.
+      2020 highlighted (COVID joke context). Clean, minimal.
+      Blues and whites, professional but accessible.
+      Horizontal flow, left to right. 16:9.
+    style: "Clean timeline, subtle wit"
+
+  - id: "act3-title"
+    act: "Act III"
+    title: "Live Proof"
+    prompt: >
+      Dynamic, real-time energy - systems in action.
+      Abstract representation of transactions, exchanges, live data flows.
+      Bright teals, electric blues, white accents.
+      Suggests immediacy, proof, "right now" energy.
+      Modern, high-tech but accessible. 16:9.
+    style: "Energy, proof, real-time"
+
+  - id: "agent-demo-split"
+    act: "Act III"
+    title: "Agent Demo Split-Screen"
+    prompt: >
+      Split-screen interface background for AI agent demonstration.
+      Left side: Seller agent workspace. Right side: Buyer agent workspace.
+      Minimal UI elements, clean separation, professional dashboard aesthetic.
+      Teal and blue color scheme. Space for overlay text and data.
+      16:9, UI/dashboard style.
+    style: "Interface design, professional UX"
+
+  - id: "undavos-reveal"
+    act: "Act III"
+    title: "The unDavos Twist"
+    prompt: >
+      Playful reveal moment - subversion of expectations.
+      Abstract representation of "alternative path" or "periphery vs center".
+      Warm teals contrasting with corporate blues.
+      Suggests authenticity, anti-establishment, humor.
+      Clean, modern, 16:9.
+    style: "Playful subversion, warmth"
+
+  - id: "reputation-system"
+    act: "Act III"
+    title: "Reputation System Visualization"
+    prompt: >
+      Two parallel paths diverging - same data, different ratings.
+      Abstract star ratings, scores, pathways splitting.
+      Professional but illustrative. Blues and teals.
+      Suggests contextual trust, filtering not censoring.
+      16:9, diagram aesthetic.
+    style: "Educational diagram, clear concept"
+
+  - id: "etherscan-qr"
+    act: "Act III"
+    title: "Blockchain Verification"
+    prompt: >
+      Clean background for QR code display.
+      Subtle blockchain/Ethereum visual elements - hexagons, network nodes.
+      Teal and blue gradient. Generous white space for QR code.
+      Professional, trustworthy, verification aesthetic.
+      16:9, clean and uncluttered.
+    style: "Trust, verification, blockchain"
+
+  - id: "fairdrop-demo"
+    act: "Act III"
+    title: "Fairdrop - Data Escrow"
+    prompt: >
+      Abstract representation of secure data exchange.
+      Encrypted file transfer, cryptographic lock imagery.
+      Clean, technical, trustworthy. Blues and whites.
+      Suggests security without complexity.
+      16:9, professional.
+    style: "Security, trust, simplicity"
+
+  - id: "fairdrive-demo"
+    act: "Act III"
+    title: "Fairdrive - Your Data Vault"
+    prompt: >
+      Personal data sovereignty visualization.
+      Abstract vault or protected space, individual control.
+      Empowering blues and teals, clean lines.
+      Suggests ownership, privacy, control.
+      16:9, modern minimalist.
+    style: "Empowerment, ownership, privacy"
+
+  - id: "verity-demo"
+    act: "Act III"
+    title: "Verity - Institutional Marketplace"
+    prompt: >
+      Professional institutional marketplace visualization.
+      Abstract representation of compliant tokenized data exchange.
+      Corporate-friendly blues, golds accent for value.
+      Suggests regulation, legitimacy, institutional trust.
+      16:9, professional institutional aesthetic.
+    style: "Institutional, compliant, valuable"
+
+  - id: "act4-title"
+    act: "Act IV"
+    title: "The Economics"
+    prompt: >
+      Economic value visualization - markets, flows, transactions.
+      Abstract representation of multi-sided marketplace.
+      Golds, teals, blues - suggesting value creation.
+      Professional economic diagram aesthetic.
+      16:9, clean and accessible.
+    style: "Economic value, marketplace dynamics"
+
+  - id: "three-sided-market"
+    act: "Act IV"
+    title: "Three-Sided Market Model"
+    prompt: >
+      Venn diagram or triangle showing three market participants.
+      Investors, Data Owners, Data Consumers.
+      Clean geometric design, teal and blue.
+      Clear separation and intersection points.
+      16:9, diagram aesthetic, educational.
+    style: "Conceptual clarity, market structure"
+
+  - id: "cme-example"
+    act: "Act IV"
+    title: "CME Revenue Example"
+    prompt: >
+      Financial success visualization - exchange revenue model.
+      Abstract representation of transaction fees accumulating.
+      Professional financial aesthetic - blues, golds, greens.
+      Suggests proven business model, scale, legitimacy.
+      16:9, corporate-friendly.
+    style: "Financial credibility, scale"
+
+  - id: "act5-title"
+    act: "Act V"
+    title: "The Opportunity"
+    prompt: >
+      Expansive, invitational background - open doors, pathways.
+      Abstract representation of multiple entry points.
+      Bright, optimistic teals and blues.
+      Suggests accessibility, participation, growth potential.
+      16:9, welcoming and energizing.
+    style: "Invitation, opportunity, growth"
+
+  - id: "who-participates"
+    act: "Act V"
+    title: "Who Participates"
+    prompt: >
+      Diverse participant visualization - many roles, one ecosystem.
+      Abstract silhouettes or nodes representing different stakeholders.
+      Inclusive, diverse color palette with teal foundation.
+      Suggests ecosystem, collaboration, multiple roles.
+      16:9, accessible and diverse.
+    style: "Ecosystem, diversity, inclusion"
+
+  - id: "act6-title"
+    act: "Act VI"
+    title: "Builders vs Committees"
+    prompt: >
+      Stark contrast visualization - action vs deliberation.
+      Left side: Dynamic, building, momentum. Right side: Static, talking.
+      Blues for builders (active), grays for committees (passive).
+      Strong visual metaphor. 16:9, high contrast.
+    style: "Contrast, call to action, urgency"
+
+  - id: "closing"
+    act: "Closing"
+    title: "Everything Changes"
+    prompt: >
+      Powerful closing background - transformation, paradigm shift.
+      Abstract representation of before/after, old world/new world.
+      Dramatic blues and teals, high contrast with whites.
+      Suggests inevitability, transformation, historical moment.
+      16:9, cinematic and memorable.
+    style: "Transformation, finality, invitation"
+
+# Generation Notes
+generation:
+  model: "gemini-3-pro-image-preview"  # High quality
+  model_fast: "gemini-2.5-flash-image"  # Nano Banana for iterations
+  resolution: "1408x792"  # 16:9 aspect ratio, standard presentation
+  batch_size: 3  # Generate 3 variations per prompt
+  output_dir: "/Users/gregor/Data/1-datafund/1-tracks/comms/presentations/undavos-keynote-visuals/"
+
+# Reference Images (if available)
+references:
+  brand_colors: "TBD - extract from existing Datafund materials"
+  logo: "TBD - Datafund logo for consistency"
+
+# Post-Processing
+post_process:
+  - "Review all images for brand consistency"
+  - "Select best variation from 3 generated"
+  - "Add text overlays in presentation software (not in AI generation)"
+  - "Test on projector/large screen for readability"
+  - "Prepare backup slides (plain backgrounds) in case of technical issues"
