@@ -45,8 +45,8 @@ settings:
 
 # What this module provides
 provides:
-  commands:
-    - create-image           # Unified conversational image generation command
+  skills:
+    - create-image           # Unified conversational image generation
 
   agents:
     - image-generator        # Routes to Midjourney or Gemini based on user choice
