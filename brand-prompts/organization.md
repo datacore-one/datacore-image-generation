@@ -1,14 +1,14 @@
-# Datafund / Verity - Midjourney Brand Prompts
+# Organization / Project Alpha - Midjourney Brand Prompts
 
 ## Brand DNA
 
-### Datafund Core
+### Organization Core
 - **Primary Color**: Pure Blue `#0000FF`
 - **Secondary**: Black, White, Gray
 - **Style**: Clean, minimal, professional
-- **Themes**: Data sovereignty, fair data economy, ownership, privacy
+- **Themes**: Data sovereignty, data economy, ownership, privacy
 
-### Verity Extension
+### Project Alpha Extension
 - **Primary Colors**: Emerald/Teal gradients (`#A0FF7F` → `#7FDFAF`)
 - **Secondary**: Slate grays, purple accents
 - **Style**: Modern tech, glassmorphism, institutional
@@ -20,14 +20,14 @@
 
 ### Style Suffix (append to all prompts)
 
-**Datafund style:**
+**Organization style:**
 ```
 clean minimal design, pure blue (#0000FF) accent color,
 black and white base, geometric shapes, professional tech aesthetic,
 data sovereignty theme, modern sans-serif feel --ar 16:9
 ```
 
-**Verity style:**
+**Project Alpha style:**
 ```
 modern tech aesthetic, emerald and teal gradients,
 dark slate background, glassmorphic elements, soft glow effects,
@@ -124,7 +124,7 @@ data flowing between continents, hopeful futuristic tone --ar 16:9
 
 ## Color Combinations
 
-### Datafund Palette
+### Organization Palette
 | Use | Colors |
 |-----|--------|
 | Primary accent | `#0000FF` (pure blue) |
@@ -132,7 +132,7 @@ data flowing between continents, hopeful futuristic tone --ar 16:9
 | Background light | `#FFFFFF` (white) |
 | Subtle bg | `#F3F4F6` (gray-100) |
 
-### Verity Palette
+### Project Alpha Palette
 | Use | Colors |
 |-----|--------|
 | Primary gradient | `#A0FF7F` → `#7FDFAF` (emerald) |
@@ -157,7 +157,7 @@ data flowing between continents, hopeful futuristic tone --ar 16:9
 
 ### Negative Prompts (avoid)
 - Cluttered, busy compositions
-- Warm/orange dominant colors (unless Verity accent)
+- Warm/orange dominant colors (unless Project Alpha accent)
 - Cartoon or playful styles
 - Serif fonts or old-fashioned aesthetics
 
@@ -165,12 +165,12 @@ data flowing between continents, hopeful futuristic tone --ar 16:9
 
 ## Usage Examples
 
-### Generate a Datafund presentation background:
+### Generate an Organization presentation background:
 ```bash
 python midjourney-api.py imagine "abstract data sovereignty concept, person at center of protective blue energy field, geometric data nodes orbiting, clean minimal illustration, pure blue (#0000FF) accents on dark background, professional tech aesthetic" --ar 16:9
 ```
 
-### Generate a Verity hero image:
+### Generate a Project Alpha hero image:
 ```bash
 python midjourney-api.py imagine "institutional data marketplace interface, emerald teal holographic dashboard, AI agent conversation visualization, dark slate environment, glassmorphic UI elements, premium fintech design" --ar 16:9
 ```

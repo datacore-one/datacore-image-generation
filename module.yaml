@@ -19,7 +19,7 @@ settings:
   midjourney:
     provider: "apiframe"  # API provider (apiframe is recommended)
     api_key: ""           # From env: APIFRAME_API_KEY
-    download_path: "2-datacore/2-projects/images/midjourney"  # Relative to space root
+    download_path: "2-projectspace/2-projects/images/midjourney"  # Relative to space root
     default_mode: "fast"  # fast or turbo
     # Legacy Discord settings (deprecated)
     discord_token: ""     # DEPRECATED - use Apiframe instead
@@ -29,7 +29,7 @@ settings:
   gemini:
     api_key: ""  # From env (GEMINI_API_KEY)
     model: "gemini-3-pro-image-preview"
-    download_path: "2-datacore/2-projects/images/gemini"  # Relative to space root
+    download_path: "2-projectspace/2-projects/images/gemini"  # Relative to space root
     default_size: "1920x1080"  # Default aspect ratio
 
   # Archive settings
@@ -86,4 +86,4 @@ hooks:
     echo "  APIFRAME_API_KEY    - Apiframe.ai API key for Midjourney"
     echo ""
     echo "Run /create-image to generate your first image."
-    echo "Images are saved to: 2-datacore/2-projects/images/{service}/"
+    echo "Images are saved to: 2-projectspace/2-projects/images/{service}/"

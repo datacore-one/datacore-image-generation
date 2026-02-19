@@ -20,7 +20,7 @@
 | Question | Answer |
 |----------|--------|
 | Default service? | Check settings.default_service or ask |
-| Where save images? | `{space}/2-datacore/2-projects/images/{service}/` |
+| Where save images? | `{space}/2-projectspace/2-projects/images/{service}/` |
 | Metadata format? | JSON sidecar with prompt, params, timestamp |
 | Index updates? | If settings.archive.build_searchable_index: true |
 
@@ -90,7 +90,7 @@ python scripts/gemini-image-gen.py \
 
 For every generated image:
 
-1. **Save image** to: `{space}/2-datacore/2-projects/images/{service}/{YYYY}/{MM}/{DD}/image-{timestamp}.png`
+1. **Save image** to: `{space}/2-projectspace/2-projects/images/{service}/{YYYY}/{MM}/{DD}/image-{timestamp}.png`
 
 2. **Create metadata JSON**:
 ```json
@@ -140,7 +140,7 @@ If triggered by org-mode task, mark as DONE and add result note:
 CLOSED: [2026-01-15 Wed 12:34]
 :PROPERTIES:
 :AI_RESULT: Generated 4 variations via Midjourney
-:AI_OUTPUT: ~/Data/2-datacore/2-projects/images/midjourney/2026/01/15/
+:AI_OUTPUT: ~/Data/2-projectspace/2-projects/images/midjourney/2026/01/15/
 :END:
 
 Prompt: "futuristic tech startup office with data visualization screens"
@@ -211,7 +211,7 @@ All new generations via Apiframe are automatically archived with metadata.
 - `.datacore/env/.env` - API keys and tokens
 
 **Archive:**
-- `{space}/2-datacore/2-projects/images/{service}/index.json` - Searchable index
+- `{space}/2-projectspace/2-projects/images/{service}/index.json` - Searchable index
 
 ## Your Boundaries
 
@@ -265,7 +265,7 @@ This is usually temporary. Would you like to:
 **Archive directory doesn't exist:**
 Create it automatically and inform user:
 ```
-Created archive directory: ~/Data/2-datacore/2-projects/images/{service}/
+Created archive directory: ~/Data/2-projectspace/2-projects/images/{service}/
 ```
 
 ## Integration with Other Agents

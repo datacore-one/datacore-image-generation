@@ -148,9 +148,9 @@ slides:
       16:9, clean and uncluttered.
     style: "Trust, verification, blockchain"
 
-  - id: "fairdrop-demo"
+  - id: "escrow-demo"
     act: "Act III"
-    title: "Fairdrop - Data Escrow"
+    title: "Data Escrow"
     prompt: >
       Abstract representation of secure data exchange.
       Encrypted file transfer, cryptographic lock imagery.
@@ -159,9 +159,9 @@ slides:
       16:9, professional.
     style: "Security, trust, simplicity"
 
-  - id: "fairdrive-demo"
+  - id: "partnerdrive-demo"
     act: "Act III"
-    title: "Fairdrive - Your Data Vault"
+    title: "PartnerDrive - Your Data Vault"
     prompt: >
       Personal data sovereignty visualization.
       Abstract vault or protected space, individual control.
@@ -170,9 +170,9 @@ slides:
       16:9, modern minimalist.
     style: "Empowerment, ownership, privacy"
 
-  - id: "verity-demo"
+  - id: "project-alpha-demo"
     act: "Act III"
-    title: "Verity - Institutional Marketplace"
+    title: "Project Alpha - Institutional Marketplace"
     prompt: >
       Professional institutional marketplace visualization.
       Abstract representation of compliant tokenized data exchange.
@@ -263,12 +263,12 @@ generation:
   model_fast: "gemini-2.5-flash-image"  # Nano Banana for iterations
   resolution: "1408x792"  # 16:9 aspect ratio, standard presentation
   batch_size: 3  # Generate 3 variations per prompt
-  output_dir: "/Users/gregor/Data/1-datafund/1-tracks/comms/presentations/undavos-keynote-visuals/"
+  output_dir: "1-teamspace/1-tracks/comms/presentations/keynote-visuals/"
 
 # Reference Images (if available)
 references:
-  brand_colors: "TBD - extract from existing Datafund materials"
-  logo: "TBD - Datafund logo for consistency"
+  brand_colors: "TBD - extract from existing Organization materials"
+  logo: "TBD - Organization logo for consistency"
 
 # Post-Processing
 post_process:

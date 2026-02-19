@@ -56,13 +56,13 @@ image-generation:
 
   # Midjourney
   midjourney:
-    download_path: "2-datacore/2-projects/images/midjourney"
+    download_path: "2-projectspace/2-projects/images/midjourney"
     auto_fetch_on_start: false
 
   # Gemini
   gemini:
     model: "gemini-3-pro-image-preview"
-    download_path: "2-datacore/2-projects/images/gemini"
+    download_path: "2-projectspace/2-projects/images/gemini"
 
   # Archive
   archive:
@@ -135,7 +135,7 @@ python scripts/image-library.py export --format markdown --output library.md
 ## Archive Structure
 
 ```
-2-datacore/2-projects/images/
+2-projectspace/2-projects/images/
 ├── midjourney/
 │   ├── 2026/01/15/
 │   │   ├── image-001.png

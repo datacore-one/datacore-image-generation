@@ -10,7 +10,7 @@ Manage image archive and prompt library:
 
 Usage:
     # Rebuild index from all metadata files
-    python image-library.py rebuild --path ~/Data/2-datacore/2-projects/images
+    python image-library.py rebuild --path ~/Data/2-projectspace/2-projects/images
 
     # Search prompts
     python image-library.py search "mountain landscape"
@@ -229,7 +229,7 @@ def cmd_update(args):
 
     # Determine service and base path
     service = metadata.get("service", "unknown")
-    base_path = Path(args.path or "~/Data/2-datacore/2-projects/images").expanduser()
+    base_path = Path(args.path or "~/Data/2-projectspace/2-projects/images").expanduser()
 
     # Load existing index
     index_path = base_path / service / "index.json"
@@ -374,25 +374,25 @@ def main():
 
     # Rebuild command
     rebuild_parser = subparsers.add_parser('rebuild', help='Rebuild index from metadata files')
-    rebuild_parser.add_argument('--path', default='~/Data/2-datacore/2-projects/images',
+    rebuild_parser.add_argument('--path', default='~/Data/2-projectspace/2-projects/images',
                                 help='Base archive path')
 
     # Search command
     search_parser = subparsers.add_parser('search', help='Search prompts by keyword')
     search_parser.add_argument('query', help='Search query')
-    search_parser.add_argument('--path', default='~/Data/2-datacore/2-projects/images',
+    search_parser.add_argument('--path', default='~/Data/2-projectspace/2-projects/images',
                                help='Base archive path')
     search_parser.add_argument('--limit', type=int, default=20, help='Max results')
 
     # Update command
     update_parser = subparsers.add_parser('update', help='Update index with new image')
     update_parser.add_argument('--image', required=True, help='Image file path')
-    update_parser.add_argument('--path', default='~/Data/2-datacore/2-projects/images',
+    update_parser.add_argument('--path', default='~/Data/2-projectspace/2-projects/images',
                                help='Base archive path')
 
     # List command
     list_parser = subparsers.add_parser('list', help='List recent images')
-    list_parser.add_argument('--path', default='~/Data/2-datacore/2-projects/images',
+    list_parser.add_argument('--path', default='~/Data/2-projectspace/2-projects/images',
                              help='Base archive path')
     list_parser.add_argument('--limit', type=int, default=10, help='Number to show')
 
@@ -401,7 +401,7 @@ def main():
     export_parser.add_argument('--format', choices=['json', 'csv', 'markdown'],
                                default='json', help='Export format')
     export_parser.add_argument('--output', required=True, help='Output file path')
-    export_parser.add_argument('--path', default='~/Data/2-datacore/2-projects/images',
+    export_parser.add_argument('--path', default='~/Data/2-projectspace/2-projects/images',
                                help='Base archive path')
 
     args = parser.parse_args()
