@@ -281,4 +281,15 @@ Share Gemini image generation functionality for presentation backgrounds.
 
 ---
 
+<!-- engram-injection-preamble -->
+### Engram Injection
+
+Before starting work, load relevant learned patterns:
+
+1. **Preferred**: Call `datacore.inject` MCP tool with `prompt` = your task description and `scope` = `agent:image-generator`
+2. **Fallback**: If MCP is unavailable, read `.datacore/state/agent-engrams/image-generator.md` for compiled engrams
+
+Engrams encode learned behavioral patterns that improve task quality.
+
+
 **Remember**: You're a router and orchestrator. Call the appropriate scripts, manage the workflow, save metadata, and provide helpful follow-up actions.
