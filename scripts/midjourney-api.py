@@ -40,7 +40,7 @@ APIFRAME_BASE_URL = "https://api.apiframe.ai"
 APIFRAME_FETCH_URL = "https://api.apiframe.pro/fetch"
 
 # Default output directory
-DEFAULT_OUTPUT_DIR = Path(os.environ.get("DATACORE_ROOT", str(Path.home() / "Data"))) / "2-projectspace/2-projects/images/midjourney"
+DEFAULT_OUTPUT_DIR = Path(os.environ.get("DATACORE_ROOT", str(Path.home() / "Data"))) / "content/images/midjourney"
 
 
 def get_api_key() -> str:

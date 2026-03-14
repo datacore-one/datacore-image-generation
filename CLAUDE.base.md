@@ -99,7 +99,7 @@ python scripts/image-library.py export --format json
 ## Archive Structure
 
 ```
-2-projectspace/2-projects/images/
+content/images/
 ├── midjourney/
 │   ├── 2026/
 │   │   ├── 01/

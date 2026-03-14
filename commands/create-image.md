@@ -93,7 +93,7 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
 After successful generation:
 
 1. **Save Image**:
-   - Path: `{space}/2-projectspace/2-projects/images/{service}/{YYYY}/{MM}/{DD}/image-{timestamp}.png`
+   - Path: `{space}/content/images/{service}/{YYYY}/{MM}/{DD}/image-{timestamp}.png`
 
 2. **Create Metadata**:
    - JSON sidecar: same path with `.json` extension
@@ -147,14 +147,14 @@ image-generation:
   # Midjourney settings (via Apiframe)
   midjourney:
     api_key: ""  # Set via APIFRAME_API_KEY env var
-    download_path: "2-projectspace/2-projects/images/midjourney"
+    download_path: "content/images/midjourney"
     default_mode: "fast"  # fast or turbo
 
   # Gemini settings
   gemini:
     api_key: ""  # Set via GEMINI_API_KEY env var
     model: "gemini-3-pro-image-preview"
-    download_path: "2-projectspace/2-projects/images/gemini"
+    download_path: "content/images/gemini"
     default_size: "1920x1080"
 
   # Archive behavior
@@ -205,7 +205,7 @@ The image is still being generated. Options:
 Error: Archive directory not found.
 
 Solution:
-  Creating directory: ~/Data/2-projectspace/2-projects/images/{service}/
+  Creating directory: ~/Data/content/images/{service}/
 
   Done! Generated images will be saved here.
 ```
