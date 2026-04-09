@@ -410,7 +410,7 @@ def cmd_download(args):
         sys.exit(1)
 
     status = result.get('status', 'unknown')
-    if status.lower() not in ['completed', 'complete']:
+    if status.lower() not in ['completed', 'complete', 'finished']:
         print(f"Task not complete (status: {status})", file=sys.stderr)
         sys.exit(1)
 
