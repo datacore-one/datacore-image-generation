@@ -1,3 +1,14 @@
+---
+name: create-image
+description: create-image command
+recall:
+  # DIP-0029 default — engrams scoped to this command + tag-matched.
+  scopes:
+    - command:create-image
+  tags:
+    - create-image
+---
+
 # /create-image
 
 Generate images using AI services (Midjourney or Gemini) with unified interface and archive management.
