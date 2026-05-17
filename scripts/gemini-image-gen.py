@@ -84,8 +84,15 @@ def save_image(image_data: bytes, output_path: str) -> tuple:
 
 
 def save_metadata(output_path: str, prompt: str, model_name: str, size: tuple, **kwargs):
-    """Save metadata JSON sidecar."""
-    metadata_path = Path(output_path).with_suffix('.json')
+    """Save metadata JSON sidecar into a `json/` subfolder next to the image,
+    so image listings stay visually clean.
+
+    e.g. {topic-folder}/foo.png  →  {topic-folder}/json/foo.json
+    """
+    image_path = Path(output_path)
+    json_dir = image_path.parent / "json"
+    json_dir.mkdir(parents=True, exist_ok=True)
+    metadata_path = json_dir / (image_path.stem + ".json")
 
     metadata = {
         "service": "gemini",
@@ -96,7 +103,7 @@ def save_metadata(output_path: str, prompt: str, model_name: str, size: tuple, *
             **kwargs
         },
         "created_at": datetime.now().isoformat(),
-        "file": Path(output_path).name
+        "file": image_path.name
     }
 
     try:

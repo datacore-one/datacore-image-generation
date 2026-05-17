@@ -8,12 +8,27 @@ Manage image archive and prompt library:
 - Rebuild index from metadata files
 - Export prompt library
 
+CONVENTION (as of 2026-05-17):
+    Images live in per-space, topic-scoped folders — NOT in a root-level
+    date-hierarchy archive. JSON sidecars live in a `json/` subfolder so
+    image listings stay visually clean for browsing:
+
+        {space}/content/{topic-slug}/{descriptive-name}.png
+        {space}/content/{topic-slug}/json/{descriptive-name}.json
+
+    The legacy default `~/Data/content/images` below is preserved for
+    backwards-compat scanning, but `--path` should be explicit and
+    point at one space's content tree (e.g. `~/Data/5-plur/content`).
+    Both layouts (new + legacy sidecar-next-to-image) are auto-detected
+    by find_metadata_files() / _resolve_image_for_sidecar().
+    TODO: add a multi-space scan mode that globs `~/Data/*/content/`.
+
 Usage:
-    # Rebuild index from all metadata files
-    python image-library.py rebuild --path ~/Data/content/images
+    # Rebuild index for a single space
+    python image-library.py rebuild --path ~/Data/5-plur/content/images
 
     # Search prompts
-    python image-library.py search "mountain landscape"
+    python image-library.py search "mountain landscape" --path ~/Data/5-plur/content/images
 
     # Update index with new image
     python image-library.py update --image ./path/to/image.png
@@ -48,12 +63,27 @@ def find_metadata_files(base_path: Path, service: str = None) -> List[Path]:
         if json_file.name in ["index.json", "midjourney-index.json", "library.json"]:
             continue
 
-        # Only metadata files (have matching image file)
-        image_file = json_file.with_suffix('.png')
-        if image_file.exists():
+        # New convention: sidecars live in {topic}/json/{stem}.json, image in {topic}/{stem}.png
+        # Legacy: sidecar lives next to image with matching basename
+        image_file = _resolve_image_for_sidecar(json_file)
+        if image_file and image_file.exists():
             metadata_files.append(json_file)
 
     return metadata_files
+
+
+def _resolve_image_for_sidecar(json_file: Path) -> Path:
+    """Map a .json sidecar to its .png image under both new and legacy layouts."""
+    # New convention: sidecar at {topic}/json/{stem}.json → image at {topic}/{stem}.png
+    if json_file.parent.name == "json":
+        candidate = json_file.parent.parent / (json_file.stem + ".png")
+        if candidate.exists():
+            return candidate
+    # Legacy: sidecar next to image with same basename
+    legacy = json_file.with_suffix('.png')
+    if legacy.exists():
+        return legacy
+    return None
 
 
 def load_metadata(json_path: Path) -> Dict:
@@ -79,7 +109,7 @@ def build_index(base_path: Path, service: str = None) -> List[Dict]:
         if metadata:
             # Add file path to metadata
             metadata["metadata_path"] = str(json_path)
-            metadata["image_path"] = str(json_path.with_suffix('.png'))
+            metadata["image_path"] = str(_resolve_image_for_sidecar(json_path))
             index.append(metadata)
 
     # Sort by creation date (newest first)
@@ -218,9 +248,15 @@ def cmd_update(args):
         print(f"Error: Image not found: {image_path}", file=sys.stderr)
         sys.exit(1)
 
-    metadata_path = image_path.with_suffix('.json')
-    if not metadata_path.exists():
-        print(f"Error: Metadata not found: {metadata_path}", file=sys.stderr)
+    # New convention: sidecar at {parent}/json/{stem}.json; legacy: alongside image
+    new_path = image_path.parent / "json" / (image_path.stem + ".json")
+    legacy_path = image_path.with_suffix('.json')
+    if new_path.exists():
+        metadata_path = new_path
+    elif legacy_path.exists():
+        metadata_path = legacy_path
+    else:
+        print(f"Error: Metadata not found at {new_path} or {legacy_path}", file=sys.stderr)
         sys.exit(1)
 
     metadata = load_metadata(metadata_path)

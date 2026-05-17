@@ -103,11 +103,18 @@ If `settings.image-generation.default_service` is set (e.g., `gemini`), skip men
 
 After successful generation:
 
-1. **Save Image**:
-   - Path: `{space}/content/images/{service}/{YYYY}/{MM}/{DD}/image-{timestamp}.png`
+1. **Save Image** — topic-scoped, in the right space:
+   - Path: `{space}/content/{topic-slug}/{descriptive-name}.png`
+   - `{space}` — the space the work belongs to (e.g., `5-plur`, `1-datafund`, `0-personal`)
+   - `{topic-slug}` — the content concept this image belongs to (e.g., `plur-llm-gap`, `data-vineyard`)
+   - `{descriptive-name}` — human-readable, unique per topic (e.g., `plur-meme-goldfish`, `plur-hero-bridge`)
+   - NO date hierarchy in the path — dates live in the JSON sidecar
+   - NO `{service}` segment — same topic folder can hold mixed-service outputs
+   - NO `images/` segment — drop unless the topic folder gets crowded with mixed media types
+   - Skip the `images/` level for now; if a topic later mixes images + videos + audio, split into media-typed subfolders at that point
 
 2. **Create Metadata**:
-   - JSON sidecar: same path with `.json` extension
+   - JSON sidecar lives in `{topic-folder}/json/{descriptive-name}.json` — a `json/` subfolder, so image listings stay visually clean for browsing
    - Contains:
      ```json
      {
@@ -115,14 +122,14 @@ After successful generation:
        "prompt": "...",
        "parameters": {...},
        "created_at": "2026-01-15T12:34:56Z",
-       "file": "image-001.png",
+       "file": "plur-meme-goldfish.png",
        "tags": []
      }
      ```
 
 3. **Update Index**:
    - If `settings.image-generation.archive.build_searchable_index: true`
-   - Append to `{service}/index.json` for searchability
+   - Scan all `{space}/content/images/` directories for indexing
 
 ### Step 4: Follow-up Actions
 
