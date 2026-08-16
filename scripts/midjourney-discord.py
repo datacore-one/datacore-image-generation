@@ -26,6 +26,9 @@ Usage:
 """
 
 import os
+
+# DIP-0047: image generation costs money on a third-party service.
+from datacore.ledger import attests
 import sys
 import json
 import time
@@ -149,6 +152,9 @@ def save_metadata(output_path: Path, data: dict):
     except Exception as e:
         print(f"Warning: Could not save metadata: {e}", file=sys.stderr)
 
+
+
+@attests("spend.image", ref=lambda r: str(getattr(r, "id", None) or (r.get("id", "") if isinstance(r, dict) else "") or ""))
 
 def send_imagine_command(channel_id: str, token: str, prompt: str, params: str = "") -> dict:
     """Send /imagine command to Midjourney bot."""

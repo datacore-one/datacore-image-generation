@@ -104,3 +104,13 @@ recall:
     - module:image-generation
   tags:
     - image-generation
+
+# DIP-0047 — generation costs money and happens on a third-party service.
+egress:
+  - fn: scripts/midjourney-api.py:imagine
+    kind: spend.image
+  - fn: scripts/midjourney-discord.py:send_imagine_command
+    kind: spend.image
+exempt:
+  - fn: "scripts/midjourney-api.py:fetch_status"
+    reason: read-only — polls job status

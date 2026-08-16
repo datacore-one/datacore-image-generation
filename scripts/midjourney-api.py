@@ -23,6 +23,9 @@ Usage:
 """
 
 import os
+
+# DIP-0047: image generation costs money on a third-party service.
+from datacore.ledger import attests
 import sys
 import json
 import time
@@ -63,6 +66,9 @@ def get_headers(api_key: str) -> dict:
         "Authorization": api_key
     }
 
+
+
+@attests("spend.image", ref=lambda r: str(getattr(r, "id", None) or (r.get("id", "") if isinstance(r, dict) else "") or ""))
 
 def imagine(prompt: str, params: dict = None, api_key: str = None) -> dict:
     """
