@@ -46,6 +46,8 @@ settings:
 
 # What this module provides
 provides:
+  commands:
+    - create-image
   skills:
     - create-image           # Unified conversational image generation
 
