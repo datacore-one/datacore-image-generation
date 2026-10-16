@@ -1,0 +1,14 @@
+[
+  {
+    "message_id": "000000000000000000",
+    "timestamp": "2026-01-01T00:00:00+00:00",
+    "prompt": "mountain landscape at dawn --ar 16:9",
+    "images": [
+      {
+        "url": "https://cdn.example.com/attachments/000/000/image.png",
+        "filename": "image.png"
+      }
+    ],
+    "raw_content": "**mountain landscape at dawn --ar 16:9** - <@0000000000>"
+  }
+]

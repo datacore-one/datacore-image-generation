@@ -105,7 +105,7 @@ After successful generation:
 
 1. **Save Image** — topic-scoped, in the right space:
    - Path: `{space}/content/{topic-slug}/{descriptive-name}.png`
-   - `{space}` — the space the work belongs to (e.g., `5-plur`, `1-datafund`, `0-personal`)
+   - `{space}` — the space the work belongs to (e.g., `0-personal`, `1-teamspace`)
    - `{topic-slug}` — the content concept this image belongs to (e.g., `plur-llm-gap`, `data-vineyard`)
    - `{descriptive-name}` — human-readable, unique per topic (e.g., `plur-meme-goldfish`, `plur-hero-bridge`)
    - NO date hierarchy in the path — dates live in the JSON sidecar

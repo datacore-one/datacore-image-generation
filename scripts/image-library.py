@@ -18,17 +18,17 @@ CONVENTION (as of 2026-05-17):
 
     The legacy default `~/Data/content/images` below is preserved for
     backwards-compat scanning, but `--path` should be explicit and
-    point at one space's content tree (e.g. `~/Data/5-plur/content`).
+    point at one space's content tree (e.g. `~/Data/<space>/content`).
     Both layouts (new + legacy sidecar-next-to-image) are auto-detected
     by find_metadata_files() / _resolve_image_for_sidecar().
     TODO: add a multi-space scan mode that globs `~/Data/*/content/`.
 
 Usage:
     # Rebuild index for a single space
-    python image-library.py rebuild --path ~/Data/5-plur/content/images
+    python image-library.py rebuild --path ~/Data/<space>/content/images
 
     # Search prompts
-    python image-library.py search "mountain landscape" --path ~/Data/5-plur/content/images
+    python image-library.py search "mountain landscape" --path ~/Data/<space>/content/images
 
     # Update index with new image
     python image-library.py update --image ./path/to/image.png

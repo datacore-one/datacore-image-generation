@@ -43,3 +43,8 @@ Thumbs.db
 # Test outputs
 test_output/
 temp/
+
+# Per-installation content (examples ship as *.example)
+midjourney-index.json
+presentation-prompts.yaml
+scripts/generate-slides-*.py

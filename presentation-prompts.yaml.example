@@ -1,0 +1,43 @@
+# Presentation image prompts — example.
+# Copy to presentation-prompts.yaml (untracked) and write your own slides.
+# Read by scripts/generate-presentation.py and generate-presentation-midjourney.py.
+
+title: "Example Talk"
+date: "2026-01-01"
+duration: "20 minutes"
+
+branding:
+  style: "Modern, minimalist, professional"
+  colors: "Deep blue, teal, white, subtle gradients"
+  vibe: "Tech conference, but accessible and human"
+  avoid: "Generic corporate stock photos, overly abstract"
+
+slides:
+  - id: "title"
+    act: "Opening"
+    title: "Example Title"
+    prompt: >
+      Keynote title slide background: bold, confident, modern.
+      Deep blue and teal gradient with subtle geometric patterns.
+      Clean negative space for text overlay. 16:9, minimalist, high contrast.
+    style: "Cinematic, invitation to action"
+
+  - id: "act1-title"
+    act: "Act I"
+    title: "The Problem"
+    prompt: >
+      Abstract visualization of data flowing, being captured, controlled.
+      Ominous but not dystopian. Deep reds transitioning to dark blues.
+      Minimalist, professional, 16:9.
+    style: "Tension, urgency"
+
+generation:
+  model: "gemini-3-pro-image-preview"
+  model_fast: "gemini-2.5-flash-image"
+  resolution: "1408x792"
+  batch_size: 3
+  output_dir: "<space>/content/presentations/<talk>/"
+
+post_process:
+  - "Select best variation from those generated"
+  - "Add text overlays in presentation software (not in AI generation)"

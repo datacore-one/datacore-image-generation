@@ -126,42 +126,10 @@ MIDJOURNEY_API_PROVIDER   # Optional: apiframe|imagineapi|useapi
 
 ---
 
-## Immediate Task: Undavos Talk Images
-
-### Priority: Generate images for your Undavos presentation FIRST
-
-Before implementing the full upgrade, you can:
-
-1. **Use Gemini** (already working) for immediate needs
-2. **Use Midjourney web interface** directly for complex artistic images
-3. **Manual workflow**: Generate on Midjourney website, save to archive with metadata
-
-### Suggested Approach for Talk Images
-
-```bash
-# Use Gemini for quick iterations
-python scripts/gemini-image-gen.py \
-  --prompt "Your prompt here" \
-  --output undavos-slide-1.png \
-  --style "professional, clean, tech conference aesthetic"
-
-# Or invoke via command
-/create-image
-```
-
-### Image Themes for Undavos (Suggestions)
-- Data sovereignty / personal data ownership visuals
-- Decentralized network aesthetics
-- Web3 / blockchain abstract backgrounds
-- Swiss Alps / Davos winter themes for local flavor
-
----
-
 ## Timeline
 
 | Phase | Task | Status |
 |-------|------|--------|
-| **NOW** | Generate Undavos images (Gemini) | 🔴 Ready to start |
 | Phase 1 | API integration script | ⚪ Pending |
 | Phase 2 | Command/agent updates | ⚪ Pending |
 | Phase 3 | Migration & cleanup | ⚪ Pending |
@@ -172,7 +140,6 @@ python scripts/gemini-image-gen.py \
 
 1. **Which API provider?** Apiframe ($39/mo) vs ImagineAPI ($30/mo unlimited)?
 2. **Multi-model support?** Do you want Flux/SDXL/Sora access too?
-3. **Undavos images**: What's the talk topic? I can help craft prompts.
 
 ---
 

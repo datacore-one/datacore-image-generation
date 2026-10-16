@@ -96,17 +96,17 @@ transparent trust visualization, minimal tech illustration,
 professional institutional style --ar 16:9
 ```
 
-### Conference/Undavos Specific
+### Conference
 
-**Swiss Alps Tech:**
+**Mountain Venue Tech:**
 ```
-futuristic conference hall in Swiss Alps mountains,
+futuristic conference hall in the mountains,
 holographic displays with teal data visualizations,
 glass walls showing snowy peaks, warm interior lighting,
 premium corporate aesthetic --ar 16:9
 ```
 
-**Davos Keynote:**
+**Keynote:**
 ```
 speaker silhouette on stage, massive blue data visualization behind,
 abstract network connecting audience, institutional setting,
