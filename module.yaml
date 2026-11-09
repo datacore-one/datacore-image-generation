@@ -79,18 +79,6 @@ requires:
       - MIDJOURNEY_DISCORD_TOKEN  # DEPRECATED - Discord user token
       - MIDJOURNEY_CHANNEL_ID     # DEPRECATED - Channel ID for Midjourney DM
 
-# Installation hooks
-hooks:
-  post_install: |
-    echo "Image Generation module installed."
-    echo ""
-    echo "Required environment variables in .datacore/env/.env:"
-    echo "  GEMINI_API_KEY      - Google Gemini API key"
-    echo "  APIFRAME_API_KEY    - Apiframe.ai API key for Midjourney"
-    echo ""
-    echo "Run /create-image to generate your first image."
-    echo "Images are saved to: content/images/{service}/"
-
 # DIP-0022 context
 context:
   priority: on_match
